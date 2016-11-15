@@ -25,3 +25,16 @@ print 'get all links'
 links = soup.find_all('a')
 for link in links:
     print link.name, link['href'], link.get_text()
+
+print 'get the specific link'
+specific_link = soup.find('a', href="http://example.com/lacie")
+print specific_link.name, specific_link['href'], specific_link.get_text()
+
+print 'use re'
+re_link = soup.find('a', href=re.compile(r"ill"))
+print re_link.name, re_link['href'], re_link.get_text()
+
+print 'get p element text'
+#class in word, so use class_
+p_text = soup.find('p', class_="title")
+print p_text.name, p_text.get_text()
